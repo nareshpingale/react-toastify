@@ -36,5 +36,24 @@
         "code": 18558
       }
     }
+  },
+  "cjs/pinging-toastify.min.js": {
+    "bundled": 32359,
+    "minified": 17870,
+    "gzipped": 5595
+  },
+  "esm/pinging-toastify.js": {
+    "bundled": 36260,
+    "minified": 19876,
+    "gzipped": 5857,
+    "treeshaked": {
+      "rollup": {
+        "code": 16992,
+        "import_statements": 442
+      },
+      "webpack": {
+        "code": 18659
+      }
+    }
   }
 }

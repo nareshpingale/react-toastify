@@ -1,5 +1,5 @@
 {
-  "name": "react-toastify",
+  "name": "pinging-toastify",
   "version": "5.5.0",
   "description": "React notification made easy",
   "keywords": [
@@ -12,7 +12,7 @@
     "alert"
   ],
   "main": "index.js",
-  "module": "esm/react-toastify.js",
+  "module": "esm/pinging-toastify.js",
   "sideEffects": [
     "*.css"
   ],
@@ -43,9 +43,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fkhadra/react-toastify.git"
+    "url": "git@github.com:nareshpingale/react-toastify.git"
   },
-  "author": "Fadi Khadra  <fdkhadra@gmail.com> (https://fkhadra.github.io)",
+  "author": "Naresh Pingale <naresh@pinging.in>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fkhadra/react-toastify/issues"

@@ -38,7 +38,13 @@
     &:hover{
         .#{$rt-namespace}__toast {
             margin-bottom: 1rem;
-            max-height: $rt-toast-max-height !important;;
+            max-height: $rt-toast-max-height !important;
+            &-content {
+                height: fit-content;
+                &::after{
+                    display: none;
+                }
+            }
         }
     }
     .#{$rt-namespace}__toast-clearall{

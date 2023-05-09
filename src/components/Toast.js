@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 
-import ProgressBar from "./ProgressBar";
-import { POSITION, TYPE, NOOP, RT_NAMESPACE } from "./../utils/constant";
+import ProgressBar from './ProgressBar';
 import {
+  POSITION,
+  TYPE,
+  NOOP,
+  RT_NAMESPACE,
   falseOrDelay,
   objectValues,
-  canUseDom,
-} from "./../utils/propValidator";
+  canUseDom
+} from './../utils';
 
 function getX(e) {
   return e.targetTouches && e.targetTouches.length >= 1

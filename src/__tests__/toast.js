@@ -4,8 +4,7 @@ import { mount } from 'enzyme';
 
 import ToastContainer from './../components/ToastContainer';
 import toast from './../toast';
-import eventManager from './../utils/eventManager';
-import { ACTION, TYPE, RT_NAMESPACE } from './../utils/constant';
+import { ACTION, TYPE, RT_NAMESPACE, eventManager } from './../utils';
 
 jest.useFakeTimers();
 
@@ -61,9 +60,9 @@ describe('toastify', () => {
     jest.runAllTimers();
 
     expect(document.querySelector(containerClass)).not.toBe(null);
-    expect(document.querySelector(`.${RT_NAMESPACE}__toast-container--rtl`)).not.toBe(
-      null
-    );
+    expect(
+      document.querySelector(`.${RT_NAMESPACE}__toast-container--rtl`)
+    ).not.toBe(null);
     unmountLazyContainer();
   });
 
@@ -111,6 +110,16 @@ describe('toastify', () => {
       mount(<ToastContainer />);
       toast.onChange(count => {
         expect(count).toBe(1);
+        done();
+      });
+      toast('hello');
+      jest.runAllTimers();
+    });
+
+    it('Should pass containerId as second arg if set', done => {
+      mount(<ToastContainer containerId="foo" />);
+      toast.onChange((count, containerId) => {
+        expect(containerId).toBe('foo');
         done();
       });
       toast('hello');
@@ -211,8 +220,8 @@ describe('toastify', () => {
     it('Should be able to update a toast even when using multi containers', () => {
       const component = mount(
         <>
-          <ToastContainer containerId='first' enableMultiContainer />
-          <ToastContainer containerId='second' enableMultiContainer />
+          <ToastContainer containerId="first" enableMultiContainer />
+          <ToastContainer containerId="second" enableMultiContainer />
         </>
       );
 
@@ -248,6 +257,22 @@ describe('toastify', () => {
       const id = toast('hello');
       jest.runAllTimers();
       expect(toast.isActive(id)).toBe(true);
+    });
+
+    it('Should work with multi container', () => {
+      mount(
+        <>
+          <ToastContainer containerId="first" enableMultiContainer />
+          <ToastContainer containerId="second" enableMultiContainer />
+        </>
+      );
+
+      const firstId = toast('hello first', { containerId: 'first' });
+      const secondId = toast('hello second', { containerId: 'second' });
+      jest.runAllTimers();
+
+      expect(toast.isActive(firstId)).toBe(true);
+      expect(toast.isActive(secondId)).toBe(true);
     });
   });
 

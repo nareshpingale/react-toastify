@@ -1,20 +1,20 @@
-import React, { Component, isValidElement, cloneElement } from "react";
-import PropTypes from "prop-types";
-import cx from "classnames";
-import TransitionGroup from "react-transition-group/TransitionGroup";
+import React, { Component, isValidElement, cloneElement } from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { TransitionGroup } from 'react-transition-group';
 
-import Toast from "./Toast";
-import CloseButton from "./CloseButton";
-import { Bounce } from "./Transitions";
-import { POSITION, ACTION } from "./../utils/constant";
-import eventManager from "./../utils/eventManager";
+import Toast from './Toast';
+import CloseButton from './CloseButton';
+import { Bounce } from './Transitions';
 import {
+  POSITION,
+  ACTION,
+  RT_NAMESPACE,
+  eventManager,
   falseOrDelay,
   isValidDelay,
-  objectValues,
-} from "./../utils/propValidator";
-import { RT_NAMESPACE } from "./../utils/constant";
-import { toast } from "..";
+  objectValues
+} from './../utils';
 
 class ToastContainer extends Component {
   static propTypes = {
@@ -177,18 +177,18 @@ class ToastContainer extends Component {
 
   componentDidMount() {
     eventManager
-      .on(ACTION.SHOW, (content, options) => this.buildToast(content, options))
-      .on(ACTION.CLEAR, (id) =>
-        id == null ? this.clear() : this.removeToast(id)
+      .cancelEmit(ACTION.WILL_UNMOUNT)
+      .on(ACTION.SHOW, (content, options) =>
+        this.ref ? this.buildToast(content, options) : null
+      )
+      .on(ACTION.CLEAR, id =>
+        !this.ref ? null : id == null ? this.clear() : this.removeToast(id)
       )
       .emit(ACTION.DID_MOUNT, this);
   }
 
   componentWillUnmount() {
-    eventManager
-      .off(ACTION.SHOW)
-      .off(ACTION.CLEAR)
-      .emit(ACTION.WILL_UNMOUNT, this);
+    eventManager.emit(ACTION.WILL_UNMOUNT, this);
   }
 
   isToastActive = (id) => this.state.toast.indexOf(id) !== -1;
@@ -203,7 +203,11 @@ class ToastContainer extends Component {
   }
 
   dispatchChange() {
-    eventManager.emit(ACTION.ON_CHANGE, this.state.toast.length);
+    eventManager.emit(
+      ACTION.ON_CHANGE,
+      this.state.toast.length,
+      this.props.containerId
+    );
   }
 
   makeCloseButton(toastClose, toastId, type) {
@@ -442,7 +446,7 @@ class ToastContainer extends Component {
         <TransitionGroup {...props} hasToast key={`container-${position}`}>
           <>
           {toastToRender[position]}
-          {hasToast && <div className={`${RT_NAMESPACE}__toast-clearall`} onClick={()=>{toast.dismiss()}}>Clear All</div>}
+          {hasToast && <div className={`${RT_NAMESPACE}__toast-clearall`} onClick={()=>{this.clear()}}>Clear All</div>}
           </>
           
         </TransitionGroup>
@@ -453,7 +457,11 @@ class ToastContainer extends Component {
   }
 
   render() {
-    return <div className={`${RT_NAMESPACE}`}>{this.renderToast()}</div>;
+    return (
+      <div ref={node => (this.ref = node)} className={`${RT_NAMESPACE}`}>
+        {this.renderToast()}
+      </div>
+    );
   }
 }
 

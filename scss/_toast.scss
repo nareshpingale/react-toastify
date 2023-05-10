@@ -5,7 +5,7 @@
     justify-content: space-between;
     font-family: $rt-font-family;
     max-height: 0px;
-    transition: max-height, position, width, margin-bottom 800ms;
+    transition: max-height 800ms, position 800ms, width 800ms, margin-bottom 800ms;
     width: calc(100% - 40px);
     &:nth-last-child(1){
         max-height: none;

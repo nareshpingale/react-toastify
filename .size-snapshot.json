@@ -38,21 +38,21 @@
     }
   },
   "cjs/pinging-toastify.min.js": {
-    "bundled": 32889,
-    "minified": 18105,
-    "gzipped": 5671
+    "bundled": 32834,
+    "minified": 18084,
+    "gzipped": 5655
   },
   "esm/pinging-toastify.js": {
-    "bundled": 36814,
-    "minified": 20125,
-    "gzipped": 5935,
+    "bundled": 36759,
+    "minified": 20104,
+    "gzipped": 5919,
     "treeshaked": {
       "rollup": {
-        "code": 17257,
+        "code": 17237,
         "import_statements": 412
       },
       "webpack": {
-        "code": 18841
+        "code": 18821
       }
     }
   }

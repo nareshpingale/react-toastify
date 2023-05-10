@@ -38,7 +38,13 @@
     &:hover{
         .#{$rt-namespace}__toast {
             margin-bottom: 1rem;
-            max-height: $rt-toast-max-height !important;;
+            max-height: $rt-toast-max-height !important;
+            &-content {
+                height: fit-content;
+                &::after{
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -61,6 +67,7 @@
     align-items: center;
     font-weight: 600;
     cursor: pointer;
+    
 }
 
 @media #{$rt-mobile} {

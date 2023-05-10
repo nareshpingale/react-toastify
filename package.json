@@ -1,6 +1,6 @@
 {
-  "name": "react-toastify",
-  "version": "5.5.0",
+  "name": "pinging-toastify",
+  "version": "5.5.21",
   "description": "React notification made easy",
   "keywords": [
     "react",
@@ -12,7 +12,7 @@
     "alert"
   ],
   "main": "index.js",
-  "module": "esm/react-toastify.js",
+  "module": "esm/pinging-toastify.js",
   "sideEffects": [
     "*.css"
   ],

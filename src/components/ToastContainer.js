@@ -444,12 +444,12 @@ class ToastContainer extends Component {
       return (
         <>
         <TransitionGroup {...props} hasToast key={`container-${position}`}>
-          <>
+          
           {toastToRender[position]}
-          {hasToast && <div className={`${RT_NAMESPACE}__toast-clearall`} onClick={()=>{this.clear()}}>Clear All</div>}
-          </>
           
         </TransitionGroup>
+
+        {hasToast && <div className={`${RT_NAMESPACE}__toast-clearall`} onClick={()=>{this.clear()}}>Clear All</div>}
         </>
         
       );

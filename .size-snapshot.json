@@ -5,9 +5,9 @@
     "gzipped": 5540
   },
   "cjs/react-toastify.min.js": {
-    "bundled": 31882,
-    "minified": 17721,
-    "gzipped": 5559
+    "bundled": 32890,
+    "minified": 18105,
+    "gzipped": 5667
   },
   "./esm/index.esm.js": {
     "bundled": 32847,
@@ -24,16 +24,35 @@
     }
   },
   "esm/react-toastify.js": {
-    "bundled": 35872,
-    "minified": 19777,
-    "gzipped": 5825,
+    "bundled": 36815,
+    "minified": 20125,
+    "gzipped": 5932,
     "treeshaked": {
       "rollup": {
-        "code": 16983,
+        "code": 17257,
         "import_statements": 412
       },
       "webpack": {
-        "code": 18558
+        "code": 18841
+      }
+    }
+  },
+  "cjs/pinging-toastify.min.js": {
+    "bundled": 32890,
+    "minified": 18105,
+    "gzipped": 5667
+  },
+  "esm/pinging-toastify.js": {
+    "bundled": 36815,
+    "minified": 20125,
+    "gzipped": 5932,
+    "treeshaked": {
+      "rollup": {
+        "code": 17257,
+        "import_statements": 412
+      },
+      "webpack": {
+        "code": 18841
       }
     }
   }

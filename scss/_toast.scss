@@ -1,22 +1,35 @@
 .#{$rt-namespace}__toast {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 0;
     display: flex;
     justify-content: space-between;
     font-family: $rt-font-family;
     max-height: 0px;
-    transition: max-height, margin-bottom 200ms;
-    width: 100%;
-
+    transition: max-height, position, width, margin-bottom 800ms;
+    width: calc(100% - 40px);
     &:nth-last-child(1){
         max-height: none;
-        margin-bottom: -59px;
+        width: 100%;
+        margin-bottom: 5px;
         .#{$rt-namespace}__toast-content{
             height: auto;
             &::after {
                 display: none;
             }
         }
+    }
+    &:nth-last-child(2){
+        width: calc(100% - 10px);
+        margin-bottom: 5px;
+        margin-top: -59px;
+    }
+    &:nth-last-child(3){
+        width: calc(100% - 20px);
+        margin-bottom: 5px;
+    }
+    &:nth-last-child(4){
+        width: calc(100% - 30px);
+        margin-bottom: 5px;
     }
     &--rtl {
         direction: rtl;

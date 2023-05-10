@@ -64,7 +64,7 @@ class Toast extends Component {
   };
 
   static defaultProps = {
-    type: TYPE.DEFAULT,
+    type: TYPE.SUCCESS,
     in: true,
     onOpen: NOOP,
     onClose: NOOP,

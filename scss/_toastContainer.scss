@@ -8,7 +8,7 @@
     color: #fff;
     display: flex;
     flex-direction: column-reverse;
-    align-items: flex-end;
+    align-items: center;
     &--top-left {
         top: 4em;
         left: 1em;
@@ -37,6 +37,8 @@
     }
     &:hover{
         .#{$rt-namespace}__toast {
+            width: 100%;
+            margin-top: 0;
             margin-bottom: 1rem;
             max-height: $rt-toast-max-height !important;
             &-content {
@@ -57,7 +59,7 @@
     color: #4A90E2;
     display: inline-flex;
     padding: 5px;
-    background: #D2E3F8;
+    background: #fff;
     border: 1px solid #4A90E2;
     border-radius: 4px;
     box-shadow: -2px 4px 4px rgba(197, 197, 197, 0.25);

@@ -5,7 +5,7 @@ import { TransitionGroup } from 'react-transition-group';
 
 import Toast from './Toast';
 import CloseButton from './CloseButton';
-import { Bounce } from './Transitions';
+import { Slide } from './Transitions';
 import {
   POSITION,
   ACTION,
@@ -134,10 +134,10 @@ class ToastContainer extends Component {
 
   static defaultProps = {
     position: POSITION.TOP_RIGHT,
-    transition: Bounce,
+    transition: Slide,
     rtl: false,
     autoClose: 5000,
-    hideProgressBar: false,
+    hideProgressBar: true,
     closeButton: <CloseButton />,
     pauseOnHover: true,
     pauseOnFocusLoss: true,
@@ -440,7 +440,6 @@ class ToastContainer extends Component {
           : { ...style },
       };
       const hasToast = toastToRender[position].filter((_) => _).length !== 0;
-      console.log(hasToast, toastToRender[position]);
       return (
         <>
         <TransitionGroup {...props} hasToast key={`container-${position}`}>

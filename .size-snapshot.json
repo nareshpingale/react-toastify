@@ -38,14 +38,14 @@
     }
   },
   "cjs/pinging-toastify.min.js": {
-    "bundled": 32890,
+    "bundled": 32889,
     "minified": 18105,
-    "gzipped": 5667
+    "gzipped": 5671
   },
   "esm/pinging-toastify.js": {
-    "bundled": 36815,
+    "bundled": 36814,
     "minified": 20125,
-    "gzipped": 5932,
+    "gzipped": 5935,
     "treeshaked": {
       "rollup": {
         "code": 17257,
@@ -53,25 +53,6 @@
       },
       "webpack": {
         "code": 18841
-      }
-    }
-  },
-  "cjs/pinging-toastify.min.js": {
-    "bundled": 32359,
-    "minified": 17870,
-    "gzipped": 5595
-  },
-  "esm/pinging-toastify.js": {
-    "bundled": 36260,
-    "minified": 19876,
-    "gzipped": 5857,
-    "treeshaked": {
-      "rollup": {
-        "code": 16992,
-        "import_statements": 442
-      },
-      "webpack": {
-        "code": 18659
       }
     }
   }

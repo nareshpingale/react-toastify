@@ -439,7 +439,7 @@ class ToastContainer extends Component {
           ? { ...style, pointerEvents: "none" }
           : { ...style },
       };
-      const hasToast = toastToRender[position].filter((_) => _).length !== 0;
+      const hasToast = toastToRender[position].filter((_) => _).length > 1;
       return (
         <>
         <TransitionGroup {...props} hasToast key={`container-${position}`}>
